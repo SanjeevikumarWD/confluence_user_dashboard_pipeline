@@ -77,13 +77,63 @@ Identifies pages with the most actions (e.g., edits, comments) to find popular c
   - `pandas`
   - `psycopg2`
   - `pyspark` *(optional)*
-- **Java** *(only if using PySpark)*
-
 ---
 
-## ⚙️ Setup Instructions
+## Set Up PostgreSQL
 
-### 1. 📥 Clone the Repository
-```bash
-git clone https://github.com/your-username/confluence-user-engagement-pipeline.git
-cd confluence-user-engagement-pipeline
+1. **Install PostgreSQL** and create a database (e.g., `confluence_db`).
+
+2. **Update database connection details** in `confluence_engagement_pipeline.py`:
+
+   ```python
+   conn = psycopg2.connect(
+       dbname="confluence_db", 
+       user="your_user", 
+       password="your_password", 
+       host="localhost", 
+       port="5432"
+   )
+## Run the Pipeline
+
+1. **Save** the script as `confluence_engagement_pipeline.py`.
+
+2. **Execute** the script:
+
+   ```bash
+   python confluence_engagement_pipeline.py
+
+
+## Sample Outputs
+
+### 🔝 Top Users by Action Count
+
+| User ID | Action Count |
+|---------|--------------|
+| 101     | 2            |
+| 102     | 2            |
+| 103     | 1            |
+
+### 📈 Action Trends
+
+| Action Type   | Count |
+|---------------|--------|
+| page_create   | 2      |
+| comment       | 2      |
+| page_edit     | 1      |
+
+### 📄 Top Pages by Actions
+
+| Page ID | Action Count |
+|---------|---------------|
+| 1       | 2             |
+| 2       | 2             |
+| 3       | 1             |
+
+## 📁 Project Structure
+
+| File/Directory                 | Description                                                        |
+|-------------------------------|--------------------------------------------------------------------|
+| `confluence_engagement_pipeline.py` | Main ETL script using Python, SQL, and optional PySpark.        |
+| `README.md`                   | Project documentation.                                             |
+| `confluence_data.json` *(optional)* | Mock data file if extracted separately.                         |
+
