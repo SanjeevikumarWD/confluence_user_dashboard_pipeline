@@ -183,4 +183,5 @@ finally:
     if conn:
         cursor.close()
         conn.close()
+
         print("PostgreSQL connection closed.")
