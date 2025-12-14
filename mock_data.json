@@ -850,11 +850,6 @@
         "action": "view",
         "timestamp": "2025-04-08 23:17:24",
         "page_id": 22
-    },
-    {
-        "user_id": 108,
-        "action": "comment",
-        "timestamp": "2025-04-09 01:10:12",
-        "page_id": 9
     }
+
 ]
